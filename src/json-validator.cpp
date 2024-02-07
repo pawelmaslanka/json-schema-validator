@@ -1078,6 +1078,9 @@ class object : public schema
 				a_prop_or_pattern_matched = true;
 				schema_p->second->validate(ptr / p.key(), p.value(), patch, e);
 			}
+			else {
+				patch.remove(ptr / p.key());
+			}
 
 #ifndef NO_STD_REGEX
 			// check all matching patternProperties
