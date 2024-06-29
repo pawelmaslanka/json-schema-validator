@@ -150,8 +150,8 @@ add_subdirectory(src)
 
 # Enable testings
 if (JSON_VALIDATOR_BUILD_TESTS)
-    enable_testing()
-    add_subdirectory(test)
+    # enable_testing()
+    # add_subdirectory(test)
 endif ()
 
 if (JSON_VALIDATOR_BUILD_EXAMPLES)

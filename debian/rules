@@ -1,0 +1,51 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+DPKG_EXPORT_BUILDFLAGS = 1
+
+# export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+clean:
+#	make clean
+#	(cd build && make clean && rm -Rf * && cd ..) || true
+
+build:
+	cmake -DBUILD_SHARED_LIBS=ON .
+	$(MAKE) all
+
+#install:
+#	cmake -DBUILD_SHARED_LIBS=ON .
+#	$(MAKE) all
+
+# binary:
+
+# mkdir -p build && cd build && cmake .. && cd ..
+# cd build && $(MAKE) all && cd ..
+
+# build:
+#       echo "Hello World!"
+#       echo $(shell pwd)
+#       PWD=$(shell pwd)
+#       $(MAKE) -f Makefile
+#       g++ -Wall -std=c++20 -I$(PWD)/src/ -I$(PWD)/src/node -I$(PWD)/src/lib -I$(PWD)/src/external -I$(PWD)/src/external/httplib -c -o flexconfig main.cpp
+
+override_dh_auto_clean:
+# override_dh_auto_test:
+# override_dh_auto_build:
+
+# 	make all
+# 	pwd
+# override_dh_auto_install:
+# 	cd build && make install
+
+# override_dh_gencontrol:
+#       dh_gencontrol -- -v$(PACKAGEVERSION)
+override_dh_usrlocal:
+#%:
+#       dh $@
+
+#override_dh_auto_configure:
+#       -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
